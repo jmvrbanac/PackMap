@@ -30,7 +30,7 @@ class EnvironmentManager(object):
         self._python = 'python'
 
     def build(self):
-        print('Building Python Virtual Environment...')
+        print('Building Python Virtual Environment: {0}...'.format(self.uuid))
         home_dir, lib_dir, inc_dir, bin_dir = venv.path_locations(
             self._env_path)
 
@@ -51,3 +51,15 @@ class EnvironmentManager(object):
     def install_package(self, package_name):
         pip = '{env_path}/bin/pip'.format(env_path=self._env_path)
         subprocess.call([pip, 'install', package_name])
+
+    @property
+    def venv_python(self):
+        return self._python
+
+    @property
+    def env_path(self):
+        return self._env_path
+
+    @property
+    def uuid(self):
+        return self._uuid
