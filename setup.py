@@ -22,6 +22,8 @@ setup(
     package_data={},
     data_files=[],
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+            'packmap = packmap.cli:main'
+        ],
     },
 )
