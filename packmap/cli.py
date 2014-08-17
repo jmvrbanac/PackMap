@@ -31,16 +31,21 @@ class PackMapClient(object):
 
     def parse_args(self):
         self.args = self.parser.parse_args()
+
+        if 'path' in self.args.install_type and not self.args.install_path:
+            print('You must specify --install-path when using the "path" '
+                  'install type')
+            exit(1)
+
         return self.args
 
     def build_arguments(self, parser):
-        # TODO(jmv) Add a way to specify install type
-        # parser.add_argument('install_type', type=str)
-
         # Required Args
         parser.add_argument('package_name', type=str)
 
         # Options
+        parser.add_argument('--install-type', type=str, default='pypi')
+        parser.add_argument('--install-path', type=str)
         parser.add_argument('--keep-env', action='store_true')
         parser.add_argument('--no-json-results', action='store_true')
 
@@ -67,13 +72,20 @@ class PackMapClient(object):
         manager = env.EnvironmentManager()
         manager.build()
 
+        # Install package
         print('Installing package into environment...')
-        manager.install_package(args.package_name)
+        install_name = args.package_name
+        if 'path' in args.install_type:
+            install_name = args.install_path
 
+        manager.install_package(install_name)
+
+        # Find Requirements
         self.results = self.execute_finder(manager, args.package_name)
 
         if not args.no_json_results:
-            self.write_results_to_file(self.results, './results.json')
+            filename = './{pkg_name}.json'.format(pkg_name=args.package_name)
+            self.write_results_to_file(self.results, filename)
 
         if not args.keep_env:
             manager.clean_up()
