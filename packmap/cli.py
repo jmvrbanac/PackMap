@@ -45,13 +45,13 @@ def main(*args, **kwargs):
     client = PackMapClient()
     parsed_args = client.parse_args()
 
-    builder = env.EnvironmentBuilder()
-    builder.build()
+    manager = env.EnvironmentManager()
+    manager.build()
 
-    builder.install_package(parsed_args.package_name)
+    manager.install_package(parsed_args.package_name)
 
     if not parsed_args.keep_env:
-        builder.clean_up()
+        manager.clean_up()
 
 if __name__ == '__main__':
     main()

@@ -20,7 +20,7 @@ import shutil
 import subprocess
 
 
-class EnvironmentBuilder(object):
+class EnvironmentManager(object):
 
     def __init__(self):
         self._uuid = uuid.uuid4()
