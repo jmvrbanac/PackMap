@@ -6,14 +6,21 @@ PackMap is a simple utility which finds all dependent packages for a given Pytho
 
 **Project:** `https://github.com/jmvrbanac/PackMap <https://github.com/jmvrbanac/PackMap>`_
 
+
+Installation:
+==============
+PackMap is available on PyPI and can be installed with pip::
+	pip install packmap
+
+
 Usage:
 =======
 
 Checking the dependencies of a package on PyPI::
-    packmap lplight --pdf-results
+	packmap lplight --pdf-results
 
 Checking the dependencies of a package on your hard drive::
-    packmap lplight --install-type path --install-path /path/to/package --pdf-results
+	packmap lplight --install-type path --install-path /path/to/package --pdf-results
 
 
 Results:
@@ -25,4 +32,4 @@ PackMap output's two different type of results; JSON and PDF.
 * PDF results: Produces an graph for easier viewing and consumption.
 
 .. note::
-    The PDF results functionality requires the graphviz system package to be installed.
+	The PDF results functionality requires the graphviz system package to be installed.
