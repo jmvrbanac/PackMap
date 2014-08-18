@@ -1,9 +1,6 @@
 from setuptools import setup, find_packages
 
-# Dirty requirements loads
-requirements = []
-with open('pip-requires') as f:
-    requirements = f.read().splitlines()
+requirements = ['virtualenv', 'pyparsing==1.5.7', 'pydot==1.0.2']
 
 desc = ''
 with open('README.rst') as f:
