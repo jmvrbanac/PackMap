@@ -26,7 +26,8 @@ class PackMapClient(object):
 
     def __init__(self):
         self.args = None
-        self.parser = self.build_arguments(argparse.ArgumentParser())
+        self.parser = self.build_arguments(argparse.ArgumentParser(
+            description='PackMap - Python Package Dependency Finding Utility'))
         self._finder_path = finder.__file__
         self.results = {}
 
@@ -42,14 +43,22 @@ class PackMapClient(object):
 
     def build_arguments(self, parser):
         # Required Args
-        parser.add_argument('package_name', type=str)
+        parser.add_argument('package_name', type=str, help=(
+            'The actual package name'))
 
         # Options
-        parser.add_argument('--install-type', type=str, default='pypi')
-        parser.add_argument('--install-path', type=str)
-        parser.add_argument('--keep-env', action='store_true')
-        parser.add_argument('--no-json-results', action='store_true')
-        parser.add_argument('--pdf-results', action='store_true')
+        parser.add_argument(
+            '--install-type', type=str, default='pypi',
+            choices=['pypi', 'path'],
+            help=('Specifies how you will install the package'))
+        parser.add_argument('--install-path', type=str, help=(
+            'Specifies where you will install the package from.'))
+        parser.add_argument('--keep-env', action='store_true', help=(
+            'Disables auto clean up of the temporary virtualenv.'))
+        parser.add_argument('--no-json-results', action='store_true', help=(
+            'Disables output of JSON results file.'))
+        parser.add_argument('--pdf-results', action='store_true', help=(
+            'Turns on PDF graph generation.'))
 
         return parser
 
