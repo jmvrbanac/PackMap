@@ -4,22 +4,24 @@ PackMap - Python Package Dependency Finding Utility
 
 PackMap is a simple utility which finds all dependent packages for a given Python package. It does this by installing the package and all of its dependencies into a clean temporary virtual environment and probing installed components for their actual requirements.
 
-**Project:** `https://github.com/jmvrbanac/PackMap <https://github.com/jmvrbanac/PackMap>`_
+* |PYPI| **GitHub:** `jmvrbanac/PackMap <https://github.com/jmvrbanac/PackMap>`_
 
+.. |PYPI| image:: https://badge.fury.io/py/packmap.svg
+	:target: http://badge.fury.io/py/packmap
 
 Installation:
 ==============
-PackMap is available on PyPI and can be installed with pip::
+PackMap is available on PyPI and can be installed with pip:
 	pip install packmap
 
 
 Usage:
 =======
 
-Checking the dependencies of a package on PyPI::
+Checking the dependencies of a package on PyPI:
 	packmap lplight --pdf-results
 
-Checking the dependencies of a package on your hard drive::
+Checking the dependencies of a package on your hard drive:
 	packmap lplight --install-type path --install-path /path/to/package --pdf-results
 
 
