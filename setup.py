@@ -9,8 +9,8 @@ with open('README.rst') as f:
 setup(
     name='packmap',
     version='0.0.1',
-    description=('A utility to discover all dependencies for a specific '
-                 'Python package'),
+    description=('A utility to discover all package dependencies for a '
+                 'specific Python package'),
     long_description=(desc),
     url='https://github.com/jmvrbanac/PackMap',
     author='John Vrbanac',
