@@ -1,5 +1,10 @@
 from setuptools import setup, find_packages
 
+# Dirty requirements loads
+requirements = []
+with open('pip-requires') as f:
+    requirements = f.read().splitlines()
+
 setup(
     name='packmap',
     version='0.0.1',
@@ -18,7 +23,7 @@ setup(
     ],
     keywords='discover package dependencies graph',
     packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
-    install_requires=[],
+    install_requires=requirements,
     package_data={},
     data_files=[],
     entry_points={
