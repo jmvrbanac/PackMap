@@ -2,7 +2,7 @@
 PackMap - Python Package Dependency Finding Utility
 ***************************************************
 
-PackMap is a simple utility which finds all dependent packages for a given Python package. It does this by installing the package and all of its dependencies into a clean temporary virtual environment and probing installed components for their actual requirements.
+PackMap is a simple utility which finds all packages required by a given Python package. It does this by installing the package and all of its dependencies into a clean temporary virtual environment and probing installed components for their actual requirements.
 
 * |PYPI| **GitHub:** `jmvrbanac/PackMap <https://github.com/jmvrbanac/PackMap>`_
 
